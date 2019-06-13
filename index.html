@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vue - Todos  - 2019-05-28</title>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css'>
+
+      <link rel="stylesheet" href="./style.css">
+
+  
+</head>
+
+<body>
+
+  
+<div id="app">
+  <div class="entername" v-if="user == ''" v-on:keyup.enter="adduser()"> 
+    <label>Enter your name</label><br/>
+    <input v-model="userinput" maxlength="15"/>
+  </div>
+  <div class="todolist" v-else="v-else"> 
+    <h2>Hello, {{user}} ! What are your ToDos for today ? </h2>
+    <div class="todoinput">
+      <input placeholder="e.G. do something big" maxlength="50" v-model="taskinput" v-on:keyup.enter="addtask(taskinput)"/><span class="icon ion-md-add-circle-outline" v-on:click="addtask(taskinput)"></span>
+      <div class="todotask">
+        <h2>Open Tasks ({{unfinished.length}})</h2>
+        <p v-if="unfinished.length == 0">Let's chill for now! 🍻</p>
+        <ul v-for="(task,index) in tasks" v-if="task.status != true">
+          <li></li><span class="icon ion-ios-radio-button-off" v-on:click="CheckStatus(task)" v-bind:id="index"></span><span class="todotitle">{{task.title}}</span><span class="icon ion-md-trash" v-on:click="remove(task)" v-bind:id="index"></span>
+        </ul>
+      </div>
+      <div class="todoFinished">
+        <h2>Finished Tasks ({{finsined.length}})  </h2>
+        <p v-if="finsined.length == 0">Let's get something done.<span>😉</span></p>
+        <ul v-for="(task,index) in tasks" v-if="task.status == true">
+          <li></li><span class="icon ion-ios-radio-button-on" v-on:click="CheckStatus(task)" v-bind:id="index"></span><span class="todotitle delete">{{task.title}}</span><span class="icon ion-md-trash" v-on:click="remove(task)" v-bind:id="index"></span>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+
+  
+
+    <script  src="./script.js"></script>
+
+
+
+
+</body>
+
+</html>
