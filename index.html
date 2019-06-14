@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Vue Todos">
+  <meta name="author" content="Eason Peng">
+  
   <title>Vue - Todos  - 2019-05-28</title>
   
   
@@ -27,7 +30,7 @@
       <input placeholder="e.G. do something big" maxlength="50" v-model="taskinput" v-on:keyup.enter="addtask(taskinput)"/><span class="icon ion-md-add-circle-outline" v-on:click="addtask(taskinput)"></span>
       <div class="todotask">
         <h2>Open Tasks ({{unfinished.length}})</h2>
-        <p v-if="unfinished.length == 0">Let's chill for now! 🍻</p>
+        <p v-if="unfinished.length == 0">Let's chill for now! 🝻</p>
         <ul v-for="(task,index) in tasks" v-if="task.status != true">
           <li></li><span class="icon ion-ios-radio-button-off" v-on:click="CheckStatus(task)" v-bind:id="index"></span><span class="todotitle">{{task.title}}</span><span class="icon ion-md-trash" v-on:click="remove(task)" v-bind:id="index"></span>
         </ul>
