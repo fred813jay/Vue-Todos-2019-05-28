@@ -1,0 +1,27 @@
+#app
+  .entername(v-if="user == ''" v-on:keyup.enter="adduser()") 
+    label Enter your name
+    br
+    input(v-model="userinput" maxlength="15")
+  .todolist(v-else)  
+    h2 Hello, {{user}} ! What are your ToDos for today ? 
+    .todoinput
+      input(placeholder="e.G. do something big" maxlength="50"  v-model="taskinput" v-on:keyup.enter="addtask(taskinput)")
+      span.icon.ion-md-add-circle-outline(v-on:click="addtask(taskinput)")
+      .todotask
+        h2 Open Tasks ({{unfinished.length}})
+        p(v-if="unfinished.length == 0") Let's chill for now! 🍻
+        ul(v-for="(task,index) in tasks" v-if="task.status != true")
+          li
+          span.icon.ion-ios-radio-button-off(v-on:click="CheckStatus(task)",v-bind:id="index")
+          span.todotitle {{task.title}}
+          span.icon.ion-md-trash(v-on:click="remove(task)",v-bind:id="index")
+      .todoFinished
+        h2 Finished Tasks ({{finsined.length}})  
+        p(v-if="finsined.length == 0") Let's get something done.
+          span 😉
+        ul(v-for="(task,index) in tasks" v-if="task.status == true")
+          li
+          span.icon.ion-ios-radio-button-on(v-on:click="CheckStatus(task)",v-bind:id="index")
+          span.todotitle.delete {{task.title}}
+          span.icon.ion-md-trash(v-on:click="remove(task)",v-bind:id="index")
