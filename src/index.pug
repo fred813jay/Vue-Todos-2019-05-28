@@ -10,7 +10,7 @@
       span.icon.ion-md-add-circle-outline(v-on:click="addtask(taskinput)")
       .todotask
         h2 Open Tasks ({{unfinished.length}})
-        p(v-if="unfinished.length == 0") Let's chill for now! 🍻
+        p(v-if="unfinished.length == 0") Let's chill for now! ??
         ul(v-for="(task,index) in tasks" v-if="task.status != true")
           li
           span.icon.ion-ios-radio-button-off(v-on:click="CheckStatus(task)",v-bind:id="index")
@@ -20,7 +20,7 @@
       .todoFinished
         h2 Finished Tasks ({{finsined.length}})  
         p(v-if="finsined.length == 0") Let's get something done.
-          span 😉
+          span ??
         ul(v-for="(task,index) in tasks" v-if="task.status == true")
           li
           span.icon.ion-ios-radio-button-on(v-on:click="CheckStatus(task)",v-bind:id="index")
