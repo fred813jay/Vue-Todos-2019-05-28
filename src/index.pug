@@ -15,6 +15,7 @@
           li
           span.icon.ion-ios-radio-button-off(v-on:click="CheckStatus(task)",v-bind:id="index")
           span.todotitle {{task.title}}
+          span.icon.ion-md-create(v-on:click="edit(task)",v-bind:id="index")
           span.icon.ion-md-trash(v-on:click="remove(task)",v-bind:id="index")
       .todoFinished
         h2 Finished Tasks ({{finsined.length}})  
@@ -24,4 +25,5 @@
           li
           span.icon.ion-ios-radio-button-on(v-on:click="CheckStatus(task)",v-bind:id="index")
           span.todotitle.delete {{task.title}}
+          span.icon.ion-md-create(v-on:click="edit(task)",v-bind:id="index")
           span.icon.ion-md-trash(v-on:click="remove(task)",v-bind:id="index")

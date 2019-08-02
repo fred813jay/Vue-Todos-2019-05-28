@@ -35,6 +35,12 @@ var vm = new Vue({
           this.tasks[i].id = i
         }
       }
+    },
+    edit: function(task){
+      var e = prompt("Please edit your ToDos here",this.tasks[task.id].title)
+      if (e){
+        this.tasks[task.id].title = e
+      }
     }
   },
   computed:{
