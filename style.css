@@ -84,7 +84,7 @@ body {
 }
 
 .todolist .todoinput .todotask ul, .todolist .todoinput .todoFinished ul {
-  padding: 8px 16px;
+  padding: 20px 16px;
 }
 
 .todolist .todoinput .todotask ul li, .todolist .todoinput .todoFinished ul li {
@@ -100,10 +100,11 @@ body {
 }
 
 .todolist .todoinput .todotask ul .todotitle, .todolist .todoinput .todoFinished ul .todotitle {
-  text-align: center;
+  text-align: left;
   margin-left: 10%;
   position: absolute;
   word-break: break-all;
+  width: 350px;
 }
 
 .todolist .todoinput .todotask ul .icon.ion-md-create, .todolist .todoinput .todoFinished ul .icon.ion-md-create {
